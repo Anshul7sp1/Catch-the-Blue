@@ -1,6 +1,6 @@
-## Getting Started
+## Catch-the-Blue
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+A simple game in java where you keep collecting the blue projectiles while avoiding the ever-increasing red ones.
 
 ## Folder Structure
 
