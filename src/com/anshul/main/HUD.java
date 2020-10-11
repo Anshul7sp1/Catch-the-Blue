@@ -32,6 +32,9 @@ public class HUD {
     public static void lowerHealth(int val){
         HEALTH -= val;
     }
+    public static void heal(int val){
+        HEALTH += val;
+    }
 
     public void setScore(int val){
         this.score = val;
@@ -46,6 +49,6 @@ public class HUD {
         return this.level;
     }
     public void levelUp(){
-        level++;
+        this.setLevel(this.level+1);
     }
 }

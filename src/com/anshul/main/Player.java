@@ -40,16 +40,29 @@ public class Player extends GameObject {
     private void checkCollision(){
         for(int i=0; i<handler.object.size(); i++){
             GameObject tempObject = handler.object.get(i);
+
             if(tempObject.getID() == ID.BASIC_ENEMY){
-                if(getBounds().intersects(tempObject.getBounds())){
+                if(this.getBounds().intersects(tempObject.getBounds())){
                     HUD.lowerHealth(1);
                 }
             }
             else if(tempObject.getID() == ID.BOUNTY){
-                if(getBounds().intersects(tempObject.getBounds())){
-                    hud.setScore(hud.getScore()+500);
+                if(this.getBounds().intersects(tempObject.getBounds())){
+                    hud.setScore(hud.getScore()+5000);
                     handler.removeObject(tempObject);
                 }    
+            }
+            else if(tempObject.getID() == ID.HP_RESTORE){
+                if(this.getBounds().intersects(tempObject.getBounds())){
+                    HUD.heal(50);
+                    handler.removeObject(tempObject);
+                } 
+            }
+            else if(tempObject.getID() == ID.SMART_ENEMY){
+                if(this.getBounds().intersects(tempObject.getBounds())){
+                    HUD.lowerHealth(20);
+                    handler.removeObject(tempObject);
+                } 
             }
         }
     }

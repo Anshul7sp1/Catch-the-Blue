@@ -5,4 +5,6 @@ public enum ID {
     BASIC_ENEMY, 
     TRAIL,
     BOUNTY,
+    SMART_ENEMY,
+    HP_RESTORE,
 }

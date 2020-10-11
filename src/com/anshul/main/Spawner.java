@@ -30,5 +30,11 @@ public class Spawner {
         if(r.nextInt(3) == 0){
             handler.addObject(new Bounty(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.BOUNTY, handler));
         }
+        if(r.nextInt(3) == 0){
+            handler.addObject(new HPRestore(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.HP_RESTORE, handler));
+        }
+        if(r.nextInt(3) == 0 && hud.getLevel() >= 5){
+            handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.SMART_ENEMY, handler));
+        }
     }
 }
