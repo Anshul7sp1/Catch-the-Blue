@@ -9,8 +9,8 @@ public class BasicEnemy extends GameObject {
     private Handler handler;
 
     private static final int SIZE = 16;
-    public BasicEnemy(int x, int y, ID id, Handler handler) {
-        super(x, y, id);
+    public BasicEnemy(int x, int y, Handler handler) {
+        super(x, y, ID.BASIC_ENEMY);
         this.handler = handler;
         velX = r.nextInt(6) + 2;
         velY = velX;

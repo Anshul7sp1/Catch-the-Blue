@@ -9,8 +9,8 @@ public class Bounty extends GameObject {
     private Handler handler;
 
     private static final int SIZE = 16;
-    public Bounty(int x, int y, ID id, Handler handler) {
-        super(x, y, id);
+    public Bounty(int x, int y, Handler handler) {
+        super(x, y, ID.BOUNTY);
         this.handler = handler;
         velX = r.nextInt(5) + 3;
         velY = r.nextInt(5) + 3;

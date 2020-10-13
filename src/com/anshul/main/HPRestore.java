@@ -9,8 +9,8 @@ public class HPRestore extends GameObject {
     private Handler handler;
 
     private static final int SIZE = 16;
-    public HPRestore(int x, int y, ID id, Handler handler) {
-        super(x, y, id);
+    public HPRestore(int x, int y, Handler handler) {
+        super(x, y, ID.HP_RESTORE);
         this.handler = handler;
         velX = r.nextInt(6) + 2;
         velY = velX;

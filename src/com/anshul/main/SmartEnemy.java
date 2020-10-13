@@ -10,8 +10,8 @@ public class SmartEnemy extends GameObject {
     private GameObject target;
 
     private static final int SIZE = 16;
-    public SmartEnemy(int x, int y, ID id, Handler handler) {
-        super(x, y, id);
+    public SmartEnemy(int x, int y, Handler handler) {
+        super(x, y, ID.SMART_ENEMY);
         this.handler = handler;
 
         for(GameObject obj : handler.object) if(obj.getID() == ID.PLAYER) target = obj;
@@ -32,8 +32,8 @@ public class SmartEnemy extends GameObject {
         float diffX =  this.x - target.getX() - 8;
         float diffY =  this.y - target.getY() - 8;
         float distance = (float)Math.sqrt((diffX*diffX) + (diffY*diffY));
-        velX = (int)((-4.0/distance) * diffX);
-        velY = (int)((-4.0/distance) * diffY);
+        velX = (int)((-3.5/distance) * diffX);
+        velY = (int)((-3.5/distance) * diffY);
 
         // if (y <= 0 || y >= Game.HEIGHT - 48)
         //     velY *= -1;
@@ -55,5 +55,9 @@ public class SmartEnemy extends GameObject {
         return new Rectangle(x, y, SIZE, SIZE);
     }
 
+    public void finalize(){
+        handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), handler));
+        handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), handler));
+    }
     
 }

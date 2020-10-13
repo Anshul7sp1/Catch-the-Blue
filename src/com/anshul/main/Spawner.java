@@ -17,7 +17,7 @@ public class Spawner {
 
     public void tick() {
         scoreCounter += spawnRate;
-        if(scoreCounter >= 1000){
+        if(scoreCounter >= 1500){
             scoreCounter = 0;
             hud.levelUp();
             spawnNewEnemy();
@@ -26,15 +26,9 @@ public class Spawner {
     }
 
     private void spawnNewEnemy(){
-        handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.BASIC_ENEMY, handler));
-        if(r.nextInt(3) == 0){
-            handler.addObject(new Bounty(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.BOUNTY, handler));
-        }
-        if(r.nextInt(3) == 0){
-            handler.addObject(new HPRestore(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.HP_RESTORE, handler));
-        }
-        if(r.nextInt(3) == 0 && hud.getLevel() >= 5){
-            handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.SMART_ENEMY, handler));
-        }
+        handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), handler));
+        if(r.nextInt(3) == 0) handler.addObject(new Bounty(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), handler));
+        if(r.nextInt(4) == 0) handler.addObject(new HPRestore(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), handler));
+        if(r.nextInt(4) == 0 && hud.getLevel() >= 5) handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), handler));
     }
 }
